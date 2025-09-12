@@ -57,10 +57,6 @@ We prioritize **free tier usage** in all labs:
 
 **⚠️ Cost Note**: AWS pricing changes frequently. Check each lab for current estimates, and please contribute updates if you notice changes.
 
-## ⚠️ Cost Warning
-
-Labs use real AWS resources. Always clean up after labs to avoid unexpected charges. See [cleanup script](resources/scripts/aws_resource_cleanup.sh) for help.
-
 ---
 
 **Ready to start building?** → Begin with [Chapter 1: Monitoring](chapters/01-monitoring/README.md)
