@@ -18,20 +18,14 @@ Each chapter follows a proven learning path:
 3. **📝 Practice Questions** - Test your knowledge with exam-style questions
 4. **📋 Cheatsheets** - Quick reference for services, their concepts, and best practices
 
-## 🚀 Getting Started
-
-**New to AWS?** → [**AWS Prerequisites**](docs/prerequisites.md) (Core AWS concepts you should understand first)
-
-**Ready to start?** → [**Environment Setup**](chapters/00-configuration/setting-up-environment.md) (Configure AWS CLI and Terraform)
-
-## 📚 Learning Roadmap
+## Learning Roadmap
 
 ### ✅ Completed Chapters
 1. **[Monitoring & Observability](chapters/01-monitoring/README.md)** - CloudWatch, logging, alarms, and operational monitoring
-   - 📖 **Notes**: [8 AWS monitoring services](chapters/01-monitoring/notes/) with detailed explanations
-   - 🛠️ **Labs**: [11 hands-on labs](chapters/01-monitoring/labs/) following the CloudMart story
-   - 📝 **Practice Questions**: [Exam-style questions](chapters/01-monitoring/exam_questions/README.md) to test your knowledge
-   - 📋 **Cheatsheet**: [Quick reference](chapters/01-monitoring/cheatsheets/monitoring_cheatsheet.md) for rapid review
+   - **Notes**: [8 AWS monitoring services](chapters/01-monitoring/notes/) with detailed explanations
+   - **Labs**: [11 hands-on labs](chapters/01-monitoring/labs/) following the CloudMart story
+   - **Practice Questions**: [Exam-style questions](chapters/01-monitoring/exam_questions/README.md) to test your knowledge
+   - **Cheatsheet**: [Quick reference](chapters/01-monitoring/cheatsheets/monitoring_cheatsheet.md) for rapid review
 
 ### 🚧 Coming Soon
 2. **Security & Identity** - IAM, KMS, least-privilege access patterns
@@ -48,7 +42,7 @@ Throughout the labs, you'll build **CloudMart** - a complete e-commerce platform
 
 The story connects all labs together, so **try not to skip labs** - each builds on the previous ones.
 
-## 💰 Cost-Conscious Learning
+## Cost-Conscious Learning
 
 We prioritize **free tier usage** in all labs:
 - Most labs are completely free
@@ -57,6 +51,35 @@ We prioritize **free tier usage** in all labs:
 
 **⚠️ Cost Note**: AWS pricing changes frequently. Check each lab for current estimates, and please contribute updates if you notice changes.
 
+## Contributing
+
+Found outdated costs or improvements? Please contribute or let us know! AWS pricing changes frequently and community updates help everyone.
+
 ---
 
-**Ready to start building?** → Begin with [Chapter 1: Monitoring](chapters/01-monitoring/README.md)
+## Ready to Start Building?
+
+Choose your starting point based on your experience:
+
+### New to AWS? 
+→ [**AWS Prerequisites**](docs/prerequisites.md)
+- Learn core AWS concepts like regions, availability zones, and IAM basics
+- Understand cloud computing fundamentals
+- Get familiar with the AWS Management Console
+- **Time needed:** 2-3 hours of reading
+
+### Ready to Configure Your Environment?
+→ [**Environment Setup**](chapters/00-configuration/setting-up-environment.md) 
+- Install and configure AWS CLI with proper authentication
+- Set up Terraform for Infrastructure as Code
+- Create IAM users following security best practices
+- Test your setup with hands-on verification
+- **Time needed:** 1-2 hours of setup
+
+### Ready for the Main Course?
+→ [**Chapter 1: Monitoring & Observability**](chapters/01-monitoring/README.md)
+- Start the CloudMart journey from startup to enterprise
+- Build complete monitoring with CloudWatch, CloudTrail, and more
+- 11 hands-on labs that build real AWS infrastructure
+- Learn through practice with cost-conscious, mostly free labs
+- **Time needed:** 2-3 weeks following the CloudMart story
