@@ -2,14 +2,14 @@
 
 ## Overview
 
-AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. It records API calls and related events made by or on behalf of your AWS account, providing a comprehensive audit trail of all actions taken in your AWS environment.
+AWS CloudTrail is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. It records API calls and related events made by or on behalf of your AWS account, providing a complete audit trail of all actions taken in your AWS environment.
 
 
 **Regional and Global Service Aspects**: 
 - CloudTrail itself is deployed as a regional service, but it can monitor both regional and global services
 - **Trail Configuration**: A trail can be configured as a single-region trail or a multi-region trail
 - **Global Service Events**: CloudTrail can record events from global services (like IAM, Route 53, CloudFront) in any region where you enable CloudTrail
-- **Best Practice**: Configure multi-region trails that include global service events to ensure comprehensive coverage
+- **Best Practice**: Configure multi-region trails that include global service events to ensure complete coverage
 
 This unique capability makes CloudTrail essential for organizations that need complete visibility across their entire AWS environment regardless of regional boundaries.
 
@@ -91,7 +91,7 @@ aws cloudtrail start-logging --name "my-organization-trail"  # Activate the trai
 
 #### Advanced Trail Configuration
 ```bash
-# Create a comprehensive trail with data events and insights
+# Create a detailed trail with data events and insights
 aws cloudtrail create-trail \
   --name "advance-trail" \
   --s3-bucket-name "my-audit-logs" \
@@ -251,7 +251,7 @@ resource "aws_kms_key" "cloudtrail" {
   }
 }
 
-# CloudTrail with comprehensive configuration
+# CloudTrail with full configuration
 resource "aws_cloudtrail" "organization_trail" {
   name           = "organization-trail"  # Trail name
   s3_bucket_name = aws_s3_bucket.cloudtrail.bucket  # Target S3 bucket

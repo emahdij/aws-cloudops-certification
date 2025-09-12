@@ -2,7 +2,7 @@
 
 ## Overview
 
-AWS Systems Manager is a comprehensive service that provides operational insights and automation capabilities for managing your AWS infrastructure and applications. It offers a unified interface to view and control your compute resources, patch operating systems, collect system inventory, and run commands across multiple instances simultaneously.
+AWS Systems Manager is a unified service that provides operational insights and automation capabilities for managing your AWS infrastructure and applications. It offers a single interface to view and control your compute resources, patch operating systems, collect system inventory, and run commands across multiple instances simultaneously.
 
 **Regional Service**: Systems Manager is a regional service that operates on resources within the same region. However, Session Manager and some automation features can work across regions when properly configured. Multi-region setups require separate configuration in each region.
 
