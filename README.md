@@ -2,13 +2,6 @@
 
 **Hands-on AWS CloudOps learning without endless videos. Build real skills, pass the certification.**
 
-<!-- ## What You'll Learn
-
-- **Production AWS operations** (not just exam tricks)
-- **Monitoring & incident response** with CloudWatch, alarms, runbooks
-- **Security best practices** with IAM, least-privilege, encryption
-- **Cost optimization** and real-world operational patterns -->
-
 ## Course Structure
 
 Each chapter follows a proven learning path:
@@ -38,9 +31,9 @@ Each chapter follows a proven learning path:
 
 ## The CloudMart Project
 
-Throughout the labs, you'll build **CloudMart** - a complete e-commerce platform that grows from a simple startup to an enterprise-scale operation. Each chapter adds new capabilities:
+You will build **CloudMart** - a complete e-commerce platform that grows from a simple startup to an enterprise-scale operation. Each chapter adds new capabilities.
 
-The story connects all labs together, so **try not to skip labs** - each builds on the previous ones.
+> **Try not to skip labs** - The story connects all labs together, and each builds on the previous ones.
 
 ## Cost-Conscious Learning
 
@@ -51,10 +44,6 @@ We prioritize **free tier usage** in all labs:
 
 **⚠️ Cost Note**: AWS pricing changes frequently. Check each lab for current estimates, and please contribute updates if you notice changes.
 
-## Contributing
-
-Found outdated costs or improvements? Please contribute or let us know! AWS pricing changes frequently and community updates help everyone.
-
 ---
 
 ## Ready to Start Building?
@@ -64,22 +53,13 @@ Choose your starting point based on your experience:
 ### New to AWS? 
 → [**AWS Prerequisites**](docs/prerequisites.md)
 - Learn core AWS concepts like regions, availability zones, and IAM basics
-- Understand cloud computing fundamentals
-- Get familiar with the AWS Management Console
 - **Time needed:** 2-3 hours of reading
 
 ### Ready to Configure Your Environment?
 → [**Environment Setup**](chapters/00-configuration/setting-up-environment.md) 
-- Install and configure AWS CLI with proper authentication
-- Set up Terraform for Infrastructure as Code
-- Create IAM users following security best practices
-- Test your setup with hands-on verification
+- Install and configure AWS CLI
+- Create IAM users
 - **Time needed:** 1-2 hours of setup
 
 ### Ready for the Main Course?
 → [**Chapter 1: Monitoring & Observability**](chapters/01-monitoring/README.md)
-- Start the CloudMart journey from startup to enterprise
-- Build complete monitoring with CloudWatch, CloudTrail, and more
-- 11 hands-on labs that build real AWS infrastructure
-- Learn through practice with cost-conscious, mostly free labs
-- **Time needed:** 2-3 weeks following the CloudMart story
