@@ -97,6 +97,8 @@ Statistics define how metric data points are aggregated over a time period:
   - RDS: DatabaseConnections, CPUUtilization, FreeStorageSpace
   - ELB: RequestCount, TargetResponseTime, HTTPCode_Target_5XX_Count
 
+> **🌍 Regional Considerations:** Most metrics are regional, but **billing metrics are only available in us-east-1** (N. Virginia). When viewing billing dashboards or setting up cost alarms, ensure you're in the us-east-1 region.
+
 > **💡 Practice Tip:** Familiarize yourself with the default metrics for key services. Create a study card for each service with its most important metrics.
 
 ### Custom Metrics
@@ -104,6 +106,8 @@ Statistics define how metric data points are aggregated over a time period:
 - Published manually via API or using CloudWatch agent
 - Charged per metric ($0.30 per metric per month)
 - Use cases: application response times, business metrics, custom error rates, memory utilization
+
+> **🗑️ Metric Lifecycle:** You cannot manually delete CloudWatch metrics. If you stop sending data to a custom metric, it will automatically disappear after 2 weeks of inactivity. AWS only charges for metrics that receive data points - empty/inactive metrics are free.
 
 > **💰 Cost Optimization:** Group similar metrics with dimensions rather than creating separate metrics when possible to reduce costs.
 
