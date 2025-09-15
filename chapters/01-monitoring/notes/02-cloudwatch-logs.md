@@ -29,6 +29,8 @@ This module covers these Domain 1 tasks:
 | **Subscription Filter** | Pattern that delivers matching log events to destinations | Enables real-time processing | Sending security logs to Lambda for analysis |
 | **Retention Period** | How long logs are kept before automatic deletion | Controls storage costs | Setting 90-day retention for compliance logs |
 
+> **⚠️ Important:** Log groups default to "Never expire" retention, which means logs are kept indefinitely and continue to incur storage costs. Always set appropriate retention periods for cost control.
+
 #### Deep Dive into Log Concepts
 
 - **Log Event**: Individual log record containing timestamp (UTC), raw message, event metadata (max size: 256 KB)
@@ -156,7 +158,7 @@ ERROR
 ### AWS CLI Operations
 
 ```bash
-# Create log group with retention
+# Create log group with retention (IMPORTANT: Set retention to avoid "Never expire" default)
 aws logs create-log-group --log-group-name "web-app-logs"
 aws logs put-retention-policy --log-group-name "web-app-logs" --retention-in-days 7
 
@@ -179,11 +181,12 @@ aws logs start-query \
 ### Terraform Configuration
 
 ```hcl
-# Log group with encryption
+# Log group with encryption and log class
 resource "aws_cloudwatch_log_group" "app_logs" {
   name              = "/aws/application/web-app"
   retention_in_days = 30
   kms_key_id        = aws_kms_key.logs.arn
+  log_group_class   = "STANDARD"  # or "INFREQUENT_ACCESS"
 
   tags = {
     Environment = "production"
@@ -371,11 +374,41 @@ aws cloudwatch put-metric-alarm \
 
 ## Cost Optimization
 
+### Log Classes and Storage Tiers
+
+| Log Class | Use Case | Storage Cost | Access Cost | Best For |
+|-----------|----------|--------------|-------------|----------|
+| **Standard** | Frequently accessed logs | $0.03/GB-month | No additional cost | Active troubleshooting, recent logs |
+| **Infrequent Access** | Rarely accessed logs | $0.015/GB-month (50% savings) | $0.005/GB scanned | Compliance, archival, old logs |
+
+> **💡 Cost Tip:** Infrequent Access can reduce storage costs by 50% for logs accessed less than once per month. Perfect for compliance logs or old application logs.
+
+#### When to Use Each Class
+- **Standard**: Active application logs, error logs, recent performance data
+- **Infrequent Access**: Compliance logs, archived application logs, historical data over 30 days old
+
+#### Metric Filter Cost Considerations
+Metric filters process ALL log data that matches their log group, even if the pattern doesn't match:
+
+| Scenario | Cost Impact | Optimization |
+|----------|-------------|--------------|
+| **High-volume logs with many filters** | $0.50/GB × number of filters | Use fewer, more specific filters |
+| **Broad filter patterns** | Processes more data | Use narrow patterns like `ERROR` vs `[...]` |
+| **Multiple log groups** | Filters process each group separately | Consolidate related logs |
+
+**Cost Example:**
+- 100 GB/month logs with 3 metric filters = $150/month just for filtering
+- Same logs with 1 optimized filter = $50/month for filtering
+
 ### Pricing Structure
-- **Ingestion**: $0.50 per GB
-- **Storage**: $0.03 per GB-month
+- **Ingestion**: $0.50 per GB (same for both classes)
+- **Storage Standard**: $0.03 per GB-month
+- **Storage Infrequent Access**: $0.015 per GB-month
+- **Metric Filters**: $0.50 per GB of log data processed by filters
 - **Insights Queries**: $0.005 per GB scanned
 - **Data Transfer**: Standard AWS data transfer rates
+
+> **⚠️ Cost Alert:** Metric filters charge $0.50 per GB of log data they process. If you have high-volume logs with multiple metric filters, this can become expensive. Consider filtering at the application level first.
 
 ### Cost Optimization Strategies
 
@@ -385,7 +418,7 @@ aws cloudwatch put-metric-alarm \
    - Production: 30-365 days
    - Compliance: 1-10 years
 
-2. **Optimize log levels**
+2. **Optimize log levels and metric filters**
    ```json
    {
      "production": ["ERROR", "WARN"],
@@ -393,6 +426,11 @@ aws cloudwatch put-metric-alarm \
      "development": ["ERROR", "WARN", "INFO", "DEBUG"]
    }
    ```
+   
+   **Metric Filter Cost Tips:**
+   - Use specific filter patterns to reduce processed data volume
+   - Consider sampling for high-volume logs
+   - Example: `[..., status_code=5*]` instead of `[..., status_code]` for 5xx errors only
 
 3. **Use S3 export for archival**
    ```bash
@@ -433,7 +471,7 @@ aws cloudwatch put-metric-alarm \
 
 1. **Application Error Monitoring**: Create metric filters to track application errors
 2. **Real-time Log Processing**: Use subscription filters with Lambda
-3. **Cost Optimization**: Set appropriate retention periods
+3. **Cost Optimization**: Set appropriate retention periods and log classes
 4. **Security Compliance**: Enable encryption and proper IAM policies
 5. **Troubleshooting**: Analyze logs with Insights queries
 
@@ -443,8 +481,11 @@ aws cloudwatch put-metric-alarm \
 
 ### Essential Commands
 ```bash
-# Create log group
-aws logs create-log-group --log-group-name "app-logs"
+# Create log group with specific log class
+aws logs create-log-group --log-group-name "app-logs" --log-group-class "STANDARD"
+
+# Create infrequent access log group for cost savings
+aws logs create-log-group --log-group-name "archive-logs" --log-group-class "INFREQUENT_ACCESS"
 
 # Set retention
 aws logs put-retention-policy --log-group-name "app-logs" --retention-in-days 30
