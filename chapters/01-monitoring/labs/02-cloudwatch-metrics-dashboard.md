@@ -273,23 +273,6 @@ Put the following JSON config into `/opt/aws/amazon-cloudwatch-agent/etc/amazon-
    - No error states
 
 
-## What You Built for CloudMart
-
-```
-🏢 CloudMart Infrastructure - Week 1 Complete
-├── 🖥️  Production Web Server
-│   ├── t2.micro EC2 with CloudMart application
-│   ├── Enhanced monitoring (CPU, memory, disk)
-│   └── Custom application health metrics
-├── 📊 Infrastructure Dashboard
-│   ├── System performance metrics
-│   ├── Network and storage monitoring  
-│   ├── Application health status
-│   └── Business metrics (order rate)
-└── 🔍 Monitoring Foundation
-    ├── CloudWatch Agent configured
-```
-
 ## Expected Costs
 
 - **Total: $0.00** ✅ (Free tier)
