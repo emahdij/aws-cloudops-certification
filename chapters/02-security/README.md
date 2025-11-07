@@ -16,7 +16,7 @@ Start with detailed notes covering all exam topics and real-world security patte
 | **[GuardDuty & Threat Detection](notes/03-guardduty-threat-detection.md)** | Threat detection, automated incident response | Medium |
 | **[Secure Access Patterns](notes/04-secure-access-patterns.md)** | Session Manager, VPC endpoints, federated access | Medium |
 
-### 🛠️ 2. Build with Hands-On Labs
+<!-- ### 🛠️ 2. Build with Hands-On Labs
 
 Complete these labs to implement production-ready security controls:
 
@@ -24,7 +24,7 @@ Complete these labs to implement production-ready security controls:
 |-----|-----------------|------------------|------|------|
 | **[01-iam-permission-boundary-ec2-role](labs/basic/01-iam-permission-boundary-ec2-role.md)** | IAM Access Control | Least-privilege EC2 role with permission boundary | 20-30min | Free |
 | **[01-s3-kms-encryption-policy](labs/intermediate/01-s3-kms-encryption-policy.md)** | Data Protection | S3 encryption with KMS, deny unencrypted uploads | 25-35min | ~$1-2 |
-| **[02-guardduty-eventbridge-sns](labs/intermediate/02-guardduty-eventbridge-sns.md)** | Threat Detection | GuardDuty with automated alert routing | 30-40min | ~$2-5 |
+| **[02-guardduty-eventbridge-sns](labs/intermediate/02-guardduty-eventbridge-sns.md)** | Threat Detection | GuardDuty with automated alert routing | 30-40min | ~$2-5 | -->
 
 ### 📝 3. Test Your Knowledge
 Practice exam-style questions: **[Practice Questions](exam_questions/)**
